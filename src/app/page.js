@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
 export default function Home() {
@@ -9,8 +10,8 @@ export default function Home() {
       <main className="flex-grow flex items-center justify-center">
 
       </main>
-      <footer>
-
+      <footer className="w-full max-w-xl px-3 my-5">
+        <Footer />
       </footer>
     </div>
   );
