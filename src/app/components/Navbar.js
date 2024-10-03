@@ -3,8 +3,8 @@ import logo from '../../assets/logo.png'
 
 export default function Navbar() {
     return (
-        <nav className="navbar bg-gray-700/35 rounded-2xl px-2 py-2 sm:mx-2 md:mx-0">
-            <div className="navbar-start">
+        <nav className="navbar bg-gray-700/35 rounded-2xl p-2 sm:mx-2 md:mx-0">
+            <a className="navbar-start" href="/">
                 <Image
                     src={logo}
                     width={80}
@@ -12,7 +12,7 @@ export default function Navbar() {
                     alt="logo"
                     className="btn btn-ghost btn-square p-1"
                 />
-            </div>
+            </a>
             <div className="navbar-center">
                 <a className="font-semibold text-lg" href="/">Green Habits</a>
             </div>
