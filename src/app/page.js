@@ -11,7 +11,7 @@ export default function Home() {
       <main className="flex-grow flex">
         <Main />
       </main>
-      <footer className="w-full max-w-2xl">
+      <footer className="w-full max-w-xl">
         <Footer />
       </footer>
     </div>

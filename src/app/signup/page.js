@@ -11,7 +11,7 @@ export default function SignUpPage() {
       <main className="flex-grow flex justify-center w-full">
         <SignUp />
       </main>
-      <footer className="w-full max-w-xl px-3 my-5">
+      <footer className="w-full max-w-xl">
         <Footer />
       </footer>
     </div>

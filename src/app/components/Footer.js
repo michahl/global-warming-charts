@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <div className="bg-base-200 pt-5 rounded-t-md px-10">
-            <footer className="flex flex-wrap justify-between footer text-neutral-content">
+        <div className="bg-base-200/30 pt-5 rounded-t-md px-10">
+            <footer className="flex justify-between footer text-neutral-content">
                 <nav>
                     <h6 className="footer-title">Links</h6>
                     <Link href="/#features" className="link link-hover">Features</Link>
@@ -14,10 +14,10 @@ export default function Footer() {
                 </nav>
                 <nav>
                     <h6 className="footer-title">Legal</h6>
-                    <Link href="/#terms" className="link link-hover">Terms of use</Link>
-                    <Link href="/#privacy" className="link link-hover">Privacy policy</Link>
+                    <Link href="/terms" className="link link-hover">Terms of use</Link>
+                    <Link href="/privacy" className="link link-hover">Privacy policy</Link>
                 </nav>
-                <form>
+                <form className="">
                     <h6 className="footer-title">Newsletter</h6>
                     <fieldset className="form-control w-80">
                         <label className="label">
