@@ -43,6 +43,7 @@ export default function SignUp() {
                         <FcGoogle className="w-6 h-6"/>
                         <p className="text-sm">Sign up with Google</p>
                     </button>
+                    <p className="text-center text-sm mt-3">By signing up, you accept our <Link href='/terms' className="text-blue-500/65">terms</Link> & <Link href='/privacy' className="text-blue-500/65">privacy</Link></p>
                 </div>
             </section>
             <div className="flex gap-1 mt-2 text-sm">
