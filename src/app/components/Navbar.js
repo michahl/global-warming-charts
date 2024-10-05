@@ -16,7 +16,7 @@ export default function Navbar() {
                     />
                 </Link>
             </div>
-            <div className="navbar-end p-1">
+            <div className="navbar-end">
                 <Link
                     href='/login'
                     className="btn btn-success text-white uppercase rounded-3xl"
