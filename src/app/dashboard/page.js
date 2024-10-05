@@ -6,7 +6,7 @@ import { TbLogout } from "react-icons/tb"
 
 export default function DashboardPage() {
   return (
-    <div className="relative flex flex-row items-center h-screen">
+    <div className="relative flex flex-row items-center justify-between min-h-screen">
         <ul className="ml-5 hidden md:block menu bg-base-200 rounded-box">
             <li>
                 <a href="/dashboard/" className="tooltip tooltip-right" data-tip="Home">
