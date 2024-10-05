@@ -6,18 +6,21 @@ export default function Navbar() {
     return (
         <nav className="navbar bg-gray-700/35 rounded-2xl p-2 sm:mx-2 md:mx-0">
             <div className="navbar-start">
-                <Link href="/">
+                <Link href="/" className="btn btn-ghost p-1">
                     <Image
                         src={logo}
-                        width={80}
-                        height={80}
+                        width={35}
+                        height={35}
                         alt="logo"
-                        className="btn btn-ghost btn-square p-1"
+                        className=""
                     />
                 </Link>
             </div>
-            <div className="navbar-end">
-                <Link href="/login" className="px-5 btn btn-success rounded-3xl uppercase text-white">
+            <div className="navbar-end p-1">
+                <Link
+                    href='/login'
+                    className="btn btn-success text-white uppercase rounded-3xl"
+                >
                     login
                 </Link>
             </div>
