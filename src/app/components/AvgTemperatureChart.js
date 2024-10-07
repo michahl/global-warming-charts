@@ -65,9 +65,7 @@ const TemperatureChart = ({ data = [] }) => {
                         tickLine={false}
                     />
                     <Tooltip 
-                        contentStyle={{ backgroundColor: '#333', border: 'none' }} 
-                        labelStyle={{ color: 'white' }} 
-                        itemStyle={{ color: 'white' }} 
+                        content={<></>} // Disable tooltip content
                     />
                     <ReferenceLine y={13.84} stroke="#8A8A8A" strokeDasharray="3 3" />
                     <Area type="monotone" dataKey="averageTemp" fill="#8A8A8A" stroke="#8A8A8A" />
