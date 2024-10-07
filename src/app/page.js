@@ -1,3 +1,5 @@
+'use client';
+
 import icon from '../assets/logo.png';
 import Image from 'next/image';
 import { IoIosArrowDroprightCircle, IoLogoGithub } from "react-icons/io"
@@ -23,7 +25,7 @@ export default function Home() {
           <p className='text-sm text-center'>Track climate change, global warming and greenhouse gas emissions. Explore the latest data and insights. Share and make an impact!</p>
       </header>
 
-      <main className='max-w-3xl mx-auto space-y-8'>
+      <main className='max-w-2xl mx-auto space-y-8'>
         <section>
           <h2 className="font-semibold text-blue-500 mb-2 px-2">Dashboards with most recent data</h2>
           <div className='grid grid-cols-1 gap-1'>
