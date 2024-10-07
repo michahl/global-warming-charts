@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { TbCopy, TbCopyCheck } from "react-icons/tb"
 import { IoIosArrowDroprightCircle, IoLogoGithub } from "react-icons/io"
+import Link from 'next/link';
 
 export default function Home() {
   const [copied, setCopied] = useState(false);
@@ -21,10 +22,10 @@ export default function Home() {
   };
 
   const pages = [
-    { title: 'Global Warming', description: "Crucial indicators of Earth's rising temperatures" },
-    { title: 'CO₂ Carbon Dioxide', description: 'Human-induced emissions of CO₂' },
-    { title: 'CH₄ Methane', description: 'Human-induced emissions of CH₄' },
-    { title: 'N₂O Nitrous Oxide', description: 'Human-induced emissions of N₂O' },
+    { title: 'Global Warming', description: "Crucial indicators of Earth's rising temperatures", link: "/global-warming" },
+    { title: 'CO₂ Carbon Dioxide', description: 'Human-induced emissions of CO₂', link: "/co2" },
+    { title: 'CH₄ Methane', description: 'Human-induced emissions of CH₄', link: "/methane" },
+    { title: 'N₂O Nitrous Oxide', description: 'Human-induced emissions of N₂O', link: "/n2o" },
   ]
 
   const more = [
@@ -36,7 +37,7 @@ export default function Home() {
     <div className="p-6 min-h-screen">
       <header className='flex flex-col max-w-xl mx-auto items-center mb-7'>
           <Image src={icon} className='w-8 h-8' />
-          <h1 className='text-xl font-semibold'>Climate Change Tracker</h1>
+          <h1 className='text-xl font-semibold'>Earth Pulse</h1>
           <p className='text-sm text-center'>Track climate change, global warming and greenhouse gas emissions. Explore the latest data and insights. Share and make an impact!</p>
       </header>
 
@@ -45,13 +46,13 @@ export default function Home() {
           <h2 className="font-semibold text-blue-500 mb-2 px-2">Dashboards with most recent data</h2>
           <div className='grid grid-cols-1 gap-1'>
             {pages.map((page, index) => (
-              <div key={index} className='flex items-center justify-between bg-base-200/75 hover:bg-base-200 rounded-xl py-3 px-4 cursor-pointer'>
+              <Link href={page.link} key={index} className='flex items-center justify-between bg-base-200/75 hover:bg-base-200 rounded-xl py-3 px-4 cursor-pointer'>
                 <div className='leading-snug'>
                   <h3 className='text-[0.93rem] font-semibold'>{page.title}</h3>
                   <p className='text-[0.8rem] text-orange-400/85'>{page.description}</p>
                 </div>
                 <IoIosArrowDroprightCircle className='w-5 h-5 text-blue-500' />
-              </div>
+              </Link>
             ))}
           </div>
         </section>
@@ -118,7 +119,7 @@ export default function Home() {
             </a>
           </div>
           <p className='text-gray-400 text-sm'>
-            &copy; {new Date().getFullYear()} Climate Change Tracker. All rights reserved.
+            &copy; {new Date().getFullYear()} Earth Pulse. All rights reserved.
           </p>
           <p className='text-sm'>Logo by <a href='https://www.flaticon.com' target='_blank' className='link link-hover'>Freepik - Flaticon</a></p>
       </footer>
