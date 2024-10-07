@@ -1,17 +1,24 @@
-'use client';
+"use client";
 import icon from '../assets/logo.png';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { TbCopy, TbCopyCheck } from "react-icons/tb"
 import { IoIosArrowDroprightCircle, IoLogoGithub } from "react-icons/io"
 import Link from 'next/link';
 
 export default function Home() {
   const [copied, setCopied] = useState(false);
+  const [currentUrl, setCurrentUrl] = useState('');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCurrentUrl(window.location.href);
+    }
+  }, []);
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(window.location.href);
+      await navigator.clipboard.writeText(currentUrl);
       setCopied(true);
 
       setTimeout(() => setCopied(false), 5000);
@@ -98,7 +105,7 @@ export default function Home() {
               <div className='flex flex-col items-start'>
                 <h5 className='font-medium mt-2 mb-1 px-1'>Share and make an impact!</h5>
                 <div className='bg-base-200 rounded-lg py-3 px-5 w-full flex justify-between cursor-pointer' onClick={handleCopy}>
-                  <p className='text-opacity-25'>{window.location.href}</p>
+                  <p className='text-opacity-25'>{currentUrl}</p>
                   <button>{copied ? <TbCopyCheck className='w-5 h-5' /> : <TbCopy className='w-5 h-5' />}</button>
                 </div>
               </div>
@@ -108,7 +115,7 @@ export default function Home() {
       </main>
 
       <footer className='flex flex-col justify-center items-center max-w-3xl mx-auto mt-5 pt-5 border-t border-gray-800/50'>
-          <div className='fle justify-center space-x-4 mb-2'>
+          <div className='flex justify-center space-x-4 mb-2'>
             <a 
               href='https://github.com/michahl' 
               target='_blank'
