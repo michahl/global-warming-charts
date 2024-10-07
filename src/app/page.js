@@ -1,18 +1,92 @@
-import Main from "./components/Main";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import icon from '../assets/logo.png';
+import Image from 'next/image';
+import { IoIosArrowDroprightCircle, IoLogoGithub } from "react-icons/io"
 
 export default function Home() {
+  const pages = [
+    { title: 'Global Warming', description: "Crucial indicators of Earth's rising temperatures" },
+    { title: 'CO₂ Carbon Dioxide', description: 'Human-induced emissions of CO₂' },
+    { title: 'CH₄ Methane', description: 'Human-induced emissions of CH₄' },
+    { title: 'N₂O Nitrous Oxide', description: 'Human-induced emissions of N₂O' },
+  ]
+
+  const more = [
+    'About us',
+    'Privacy & Terms',
+  ]
+
   return (
-    <div className="flex flex-col items-center min-h-screen">
-      <header className="w-full max-w-xl my-5 px-3">
-        <Navbar />
+    <div className="p-6 min-h-screen">
+      <header className='flex flex-col max-w-xl mx-auto items-center mb-7'>
+          <Image src={icon} className='w-8 h-8' />
+          <h1 className='text-xl font-semibold'>Climate Change Tracker</h1>
+          <p className='text-sm text-center'>Track climate change, global warming and greenhouse gas emissions. Explore the latest data and insights. Share and make an impact!</p>
       </header>
-      <main className="flex-grow flex">
-        <Main />
+
+      <main className='max-w-3xl mx-auto space-y-8'>
+        <section>
+          <h2 className="font-semibold text-blue-500 mb-2 px-2">Dashboards with most recent data</h2>
+          <div className='grid grid-cols-1 gap-1'>
+            {pages.map((page, index) => (
+              <div key={index} className='flex items-center justify-between bg-base-200/75 hover:bg-base-200 rounded-xl py-3 px-4 cursor-pointer'>
+                <div className='leading-snug'>
+                  <h3 className='text-[0.93rem] font-semibold'>{page.title}</h3>
+                  <p className='text-[0.8rem] text-orange-400/85'>{page.description}</p>
+                </div>
+                <IoIosArrowDroprightCircle className='w-5 h-5 text-blue-500' />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h2 className="font-semibold text-blue-500 mb-2 px-2">Dashboard for Paris Agreement</h2>
+          <div className='grid grid-cols-1 gap-1'>
+            <div className='flex items-center justify-between bg-base-200/75 hover:bg-base-200 rounded-xl py-3 px-4 cursor-pointer'>
+              <div className='leading-snug'>
+                <h3 className='text-[0.93rem] font-semibold'>Indicators of Global Climate Change</h3>
+                <p className='text-[0.8rem] text-orange-400/85'>IPCC AR6 consistent, annually updated, by IGCC initiative</p>
+              </div>
+              <IoIosArrowDroprightCircle className='w-5 h-5 text-blue-500' />
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 className='font-semibold text-blue-500 mb-2 px-2'>More</h2>
+          <div className='grid grid-cols-2 gap-1'>
+            {
+              more.map((item, index)=> (
+                <div key={index} className='bg-base-200/75 hover:bg-base-200 rounded-xl cursor-pointer flex items-center justify-center p-4'>
+                  <h3 className='text-[0.943rem] font-semibold'>{item}</h3>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+
+        <section className='text-center'>
+          <p className='text-gray-400 mb-1 text-sm'>Tell your friends and make an impact!</p>
+          <button className='bg-blue-600 text-sm text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors'>
+            Share link 🌍
+          </button>
+        </section>
       </main>
-      <footer className="w-full max-w-xl">
-        <Footer />
+
+      <footer className='flex flex-col justify-center items-center max-w-3xl mx-auto mt-5 pt-5 border-t border-gray-800/50'>
+          <div className='fle justify-center space-x-4 mb-2'>
+            <a 
+              href='https://github.com/michahl' 
+              target='_blank'
+              className='text-gray-400 hover:text-gray-300 transition-colors'
+            >
+              <IoLogoGithub className='w-6 h-6' />
+            </a>
+          </div>
+          <p className='text-gray-400 text-sm'>
+            &copy; {new Date().getFullYear()} Climate Change Tracker. All rights reserved.
+          </p>
+          <p className='text-sm'>Logo by <a href='https://www.flaticon.com' target='_blank' className='link link-hover'>Freepik - Flaticon</a></p>
       </footer>
     </div>
   );
