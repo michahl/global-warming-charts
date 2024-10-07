@@ -2,9 +2,24 @@
 
 import icon from '../assets/logo.png';
 import Image from 'next/image';
+import { useState } from 'react';
+import { TbCopy, TbCopyCheck } from "react-icons/tb"
 import { IoIosArrowDroprightCircle, IoLogoGithub } from "react-icons/io"
 
 export default function Home() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setCopied(true);
+
+      setTimeout(() => setCopied(false), 5000);
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  };
+
   const pages = [
     { title: 'Global Warming', description: "Crucial indicators of Earth's rising temperatures" },
     { title: 'CO₂ Carbon Dioxide', description: 'Human-induced emissions of CO₂' },
@@ -69,9 +84,26 @@ export default function Home() {
 
         <section className='text-center'>
           <p className='text-gray-400 mb-1 text-sm'>Tell your friends and make an impact!</p>
-          <button className='bg-blue-600 text-sm text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors'>
+          <button 
+            onClick={() => document.getElementById('modal').showModal()}
+            className='bg-blue-600 text-sm text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors'
+          >
             Share link 🌍
           </button>
+          <dialog id='modal' className='modal'>
+            <div className='modal-box'>
+              <form>
+                <button className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-xs rounded-xl'>✕</button>
+              </form>
+              <div className='flex flex-col items-start'>
+                <h5 className='font-medium mt-2 mb-1 px-1'>Share and make an impact!</h5>
+                <div className='bg-base-200 rounded-lg py-3 px-5 w-full flex justify-between cursor-pointer' onClick={handleCopy}>
+                  <p className='text-opacity-25'>{window.location.href}</p>
+                  <button>{copied ? <TbCopyCheck className='w-5 h-5' /> : <TbCopy className='w-5 h-5' />}</button>
+                </div>
+              </div>
+            </div>
+          </dialog>
         </section>
       </main>
 
