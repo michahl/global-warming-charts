@@ -12,9 +12,6 @@ export async function GET() {
             }
         });
 
-        console.log('Response status:', response.status);
-        console.log('Response headers:', response.headers);
-
         if (!response.ok) {
             console.error('Fetch error:', response.statusText);
             throw new Error(response.statusText);

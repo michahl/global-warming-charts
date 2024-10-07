@@ -5,17 +5,17 @@ const TemperatureChart = ({ data = [] }) => {
     const lastYear = 2024;
     const lastDataPoint = data.find(d => d.year === lastYear);
 
-    const [xTicks, setXTicks] = useState([1880, 1900, 1920, 1940, 1960, 1980, 2000, 2024]);
+    const [xTicks, setXTicks] = useState([1880, 1890, 1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000 , 2010, 2024]);
     const [yTicks, setYTicks] = useState([11, 12, 13, 14, 15]);
     const [hoveredData, setHoveredData] = useState(null);
 
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth < 800) {
-                setXTicks([1890, 1900, 1920, 1940, 1960, 1980, 2000, 2024]);
+                setXTicks([1880, 1900, 1920, 1940, 1960, 1980, 2000, 2024]);
                 setYTicks([11, 13, 15]);
             } else {
-                setXTicks([1890, 1900, 1920, 1940, 1960, 1980, 2000, 2024]);
+                setXTicks([1880, 1890, 1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000 , 2010, 2024]);
                 setYTicks([11, 12, 13, 14, 15]);
             }
         };
@@ -71,7 +71,7 @@ const TemperatureChart = ({ data = [] }) => {
                     <Area type="monotone" dataKey="averageTemp" fill="#8A8A8A" stroke="#8A8A8A" />
                     {lastDataPoint && (
                         <>
-                            <ReferenceDot x={lastDataPoint.year} y={lastDataPoint.averageTemp} r={4} fill="#8A8A8A" />
+                            <ReferenceDot x={lastDataPoint.year} y={lastDataPoint.averageTemp} r={4} fill="#ebebeb" />
                         </>
                     )}
                 </AreaChart>
