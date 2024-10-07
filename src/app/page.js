@@ -1,5 +1,4 @@
 'use client';
-
 import icon from '../assets/logo.png';
 import Image from 'next/image';
 import { useState } from 'react';
