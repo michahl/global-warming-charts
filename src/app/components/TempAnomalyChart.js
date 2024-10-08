@@ -78,8 +78,14 @@ const TempAnomalyChart = ({ data }) => {
                                 x={dataPoint2024.year} 
                                 y={dataPoint2024.averageAnomaly} 
                                 r={2} 
+                                fill="#f0f0f0"
+                            />
+                            <ReferenceDot 
+                                x={dataPoint2024.year} 
+                                y={dataPoint2024.averageAnomaly} 
+                                r={3} 
                                 fill="#ffffff"
-                                className="animate-ping transition-all ease-out duration-700"
+                                className="animate-pulse opacity-70"
                             />
                         </>
                     )}
