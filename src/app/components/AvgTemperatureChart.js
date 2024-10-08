@@ -73,7 +73,13 @@ const TemperatureChart = ({ data = [] }) => {
                         content={<></>} // Disable tooltip content
                     />
                     <ReferenceLine y={13.84} stroke="#8c8c8c" strokeDasharray="3 3" />
-                    <Area type="monotone" dataKey="averageTemp" fill="#666666" stroke="#666666" />
+                    <Area 
+                        type="monotone" 
+                        dataKey="averageTemp" 
+                        fill="#666666" 
+                        stroke="#666666"
+                        activeDot={{ r: 3, fill: '#ebebeb' }}
+                    />
                     {lastDataPoint && (
                         <>
                             <ReferenceDot x={lastDataPoint.year} y={lastDataPoint.averageTemp} r={3} fill="#ebebeb" />

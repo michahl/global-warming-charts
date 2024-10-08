@@ -70,6 +70,7 @@ const TempAnomalyChart = ({ data }) => {
                         dataKey="averageAnomaly" 
                         fill="url(#colorAnomaly)" 
                         stroke="none" 
+                        activeDot={{ r: 3, fill: '#ebebeb' }}
                     />
                     {/* Add a dot for the year 2024 data point */}
                     {dataPoint2024 && (

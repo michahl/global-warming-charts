@@ -24,45 +24,51 @@ const TempChangeChart = ({ data }) => {
     };
 
     return (
-        <div  style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+        <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
             <div style={{ position: 'absolute', top: 5, right: 20, color: 'white', zIndex: 10 }}>
                 {displayData ? (
                     <div className='flex flex-col items-end leading-tight text-[0.8rem]'>
                         <p className='font-medium'>{displayData.year}</p>
                         <p className='text-gray-500/90'>in °C </p>
                         <p className='font-semibold'>{displayData.rateOfChange}</p>
-                    </div>  
+                    </div>
                 ) : ''}
             </div>
             <ResponsiveContainer width="100%" height={200}>
                 <AreaChart
                     data={data}
                     margin={{
-                        top: 75, right: 20, left: -25, bottom: 5
+                        top: 75, right: 20, left: -15, bottom: 5
                     }}
                 >
-                    <XAxis dataKey="year" axisLine={false} tickLine={false} tick={axisTickStyle} />
-                    <YAxis 
-                        tickLine={false} 
+                    <XAxis 
+                        dataKey="year" 
                         axisLine={false} 
+                        tickLine={false} 
                         tick={axisTickStyle} 
-                        ticks={[0, 0.01, 0.02]} 
+                        ticks={[1910, 1930, 1950, 1970, 1990, 2010, 2024]} 
+                    />
+                    <YAxis
+                        tickLine={false}
+                        axisLine={false}
+                        tick={axisTickStyle}
+                        ticks={[0, 0.01, 0.02]}
                     />
                     <Tooltip
                         content={<CustomTooltip />}
                     />
-                    <ReferenceLine y={0} fill='#8c8c8c' opacity={0.5}/>
-                    <Area 
-                        type="monotone" 
-                        dataKey="rateOfChange" 
-                        stroke={data[data.length - 1]?.rateOfChange < 0 ? "#0000ff" : "#ff0000"}
-                        fill="#ff0000"
+                    <ReferenceLine y={0} fill='#8c8c8c' opacity={0.5} />
+                    <Area
+                        type="monotone"
+                        dataKey="rateOfChange"
+                        stroke="#ff0000"
                         fillOpacity={0}
                         dot={false}
                         isAnimationActive={false}
                         connectNulls
                         yAxisId={0}
                         baseValue={0}
+                        activeDot={{ r: 3, fill: '#ebebeb' }}
                     />
                     {dataPoint2024 && (
                         <>
