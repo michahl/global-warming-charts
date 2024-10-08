@@ -28,7 +28,6 @@ export default function AverageTempAnomaly() {
                 }));
 
                 setAverageAn(avgAnomalies);
-                console.log(avgAnomalies)
             } catch (error) {
                 console.error('Error fetching temperature anomalies:', error);
             }
