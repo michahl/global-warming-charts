@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import AverageTemp from "../components/AverageTemp"
 import AverageTempAnomaly from "../components/AverageTempAnomaly"
 import TempChange from "../components/TempChange"
