@@ -1,7 +1,6 @@
 "use client"
 import { useState, useEffect } from "react";
 import TemperatureChart from "./AvgTemperatureChart";
-import Image from "next/image";
 
 export default function AverageTemp() {
     const [averageTemps, setAverageTemps] = useState([]);
@@ -58,10 +57,6 @@ export default function AverageTemp() {
                     <p className="text-[10px] sm:text-xs text-center text-blue-500 border border-blue-500/80 rounded-full py-1 px-2">Since 1880</p>
                 </div>
                 <TemperatureChart data={averageTemps} />
-            </div>
-            <div className="hidden md:flex justify-center items-center pb-3 gap-2">
-                <Image src="/logo.png" alt="logo" width={20} height={20} />
-                <p className="text-xs text-center text-white/75 font-medium">Climate Change Tracker. Last data update {lastModified}</p>
             </div>
         </div>
     );

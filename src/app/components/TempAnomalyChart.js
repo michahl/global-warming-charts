@@ -23,19 +23,21 @@ const TempAnomalyChart = ({ data }) => {
         }
     };
 
+    const displayData = hoveredData || dataPoint2024
+
     return (
         <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-            <div style={{ position: 'absolute', top: 5, right: 35, color: 'white', zIndex: 10 }}>
-                {hoveredData ? (
-                    <div className='flex flex-col items-end leading-none'>
-                        <p className='font-medium text-[1.05rem]'>{hoveredData.year}</p>
-                        <p className='text-gray-500/90 text-xs'>in °C </p>
-                        <p className='font-semibold text-[1.05rem]'>{hoveredData.averageTemp}</p>
+            <div style={{ position: 'absolute', top: 5, right: 20, color: 'white', zIndex: 10 }}>
+                {displayData ? (
+                    <div className='flex flex-col items-end leading-tight text-[0.8rem]'>
+                        <p className='font-medium'>{displayData.year}</p>
+                        <p className='text-gray-500/90'>in °C </p>
+                        <p className='font-semibold'>{displayData.averageAnomaly}</p>
                     </div>  
                 ) : ''}
             </div>
-            <ResponsiveContainer width="100%" height={135}>
-                <AreaChart data={data}>
+            <ResponsiveContainer width="100%" height={200}>
+                <AreaChart data={data} margin={{ top: 75, right: 20, left: -25, bottom: 5 }} >
                     <defs>
                         <linearGradient id="colorAnomaly" x1="0" y1="0" x2="0" y2="1">
                             <stop offset="0%" stopColor="#ff4c0b"/> {/* Red color */}
