@@ -14,9 +14,13 @@ const TemperatureChart = ({ data = [] }) => {
         const handleResize = () => {
             if (window.innerWidth < 800) {
                 setXTicks([1880, 1900, 1920, 1940, 1960, 1980, 2000, 2024]);
-                setYTicks([11, 13, 15]);
             } else {
                 setXTicks([1880, 1890, 1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000 , 2010, 2024]);
+            }
+
+            if (window.innerWidth < 550) {
+                setYTicks([11, 13, 15]);
+            } else {
                 setYTicks([11, 12, 13, 14, 15]);
             }
         };
@@ -39,40 +43,40 @@ const TemperatureChart = ({ data = [] }) => {
 
     return (
         <div style={{ position: 'relative' }}>
-            <div style={{ position: 'absolute', top: 5, right: 35, color: 'white', zIndex: 10 }}>
+            <div style={{ position: 'absolute', top: 5, right: 20, color: 'white', zIndex: 10 }}>
                 {displayData ? (
-                    <div className='flex flex-col items-end leading-none'>
-                        <p className='font-medium text-[1.05rem]'>{displayData.year}</p>
-                        <p className='text-gray-500/90 text-xs'>in °C </p>
-                        <p className='font-semibold text-[1.05rem]'>{displayData.averageTemp}</p>
+                    <div className='flex flex-col items-end leading-tight text-[0.8rem]'>
+                        <p className='font-medium'>{displayData.year}</p>
+                        <p className='text-gray-500/90'>in °C </p>
+                        <p className='font-semibold'>{displayData.averageTemp}</p>
                     </div>  
                 ) : ''}
             </div>
-            <ResponsiveContainer width="100%" height={window.innerHeight < 800 ? 230 : 275}>
-                <AreaChart data={data} margin={{ top: 75, right: 35, left: 0, bottom: 10 }} onMouseMove={handleMouseMove} onMouseLeave={() => setHoveredData(null)}>
+            <ResponsiveContainer width="100%" height={window.innerWidth < 600 ? 200 : 275}>
+                <AreaChart data={data} margin={{ top: 75, right: 20, left: -25, bottom: 5 }} onMouseMove={handleMouseMove} onMouseLeave={() => setHoveredData(null)}>
                     <CartesianGrid vertical={false} horizontal={false} />
                     <XAxis 
                         dataKey="year" 
                         ticks={xTicks} 
-                        tick={{ fill: 'white', fontSize: 12 }} // Adjust font size here
+                        tick={{ fill: 'white', fontSize: 10 }} // Adjust font size here
                         axisLine={false}
                         tickLine={false}
                     />
                     <YAxis 
                         domain={[11, 'dataMax']} 
                         ticks={yTicks} 
-                        tick={{ fill: 'white', fontSize: 12 }} // Adjust font size here
+                        tick={{ fill: 'white', fontSize: 10 }} // Adjust font size here
                         axisLine={false}
                         tickLine={false}
                     />
                     <Tooltip 
                         content={<></>} // Disable tooltip content
                     />
-                    <ReferenceLine y={13.84} stroke="#8A8A8A" strokeDasharray="3 3" />
-                    <Area type="monotone" dataKey="averageTemp" fill="#8A8A8A" stroke="#8A8A8A" />
+                    <ReferenceLine y={13.84} stroke="#8c8c8c" strokeDasharray="3 3" />
+                    <Area type="monotone" dataKey="averageTemp" fill="#666666" stroke="#666666" />
                     {lastDataPoint && (
                         <>
-                            <ReferenceDot x={lastDataPoint.year} y={lastDataPoint.averageTemp} r={4} fill="#ebebeb" />
+                            <ReferenceDot x={lastDataPoint.year} y={lastDataPoint.averageTemp} r={3} fill="#ebebeb" />
                         </>
                     )}
                 </AreaChart>
