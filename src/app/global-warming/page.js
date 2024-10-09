@@ -15,7 +15,7 @@ export default function GlobalWarming() {
                 <section className="text-white/80 p-2 flex items-center justify-between">
                     <div className="leading-tight">
                         <h2 className="font-semibold text-lg">Global Warming</h2>
-                        <p className="text-[0.9rem]">Crucial indicators of Earth's rising temperatures</p>
+                        <p className="text-[0.9rem]">Crucial indicators of Earth&#39;s rising temperatures</p>
                     </div>
                     <Link href="/global-warming/more" className="rounded-full p-2 bg-gray-800 hover:bg-gray-800/75">
                         <LuHelpingHand className="text-blue-500 cursor-pointer w-6 h-6" />

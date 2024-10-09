@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <footer className="flex flex-col items-center pt-5 space-y-5">
             <div className="text-gray-400/80 text-sm flex flex-row items-center gap-1">
-                <Image src="/bw-logo.png" width={20} height={20}/>
+                <Image src="/bw-logo.png" alt='logo' width={20} height={20}/>
                 <p>
                     Most recent data from NOAA, NASA, NASA CERES, NASA ERBE
                 </p>

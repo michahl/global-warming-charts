@@ -1,8 +1,6 @@
 "use client";
-import icon from '../assets/logo.png';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { TbCopy, TbCopyCheck } from "react-icons/tb"
 import { IoIosArrowDroprightCircle, IoLogoGithub } from "react-icons/io"
 import Link from 'next/link';
 
@@ -15,14 +13,14 @@ export default function Home() {
   ]
 
   const more = [
-    'About us',
+    'About',
     'Privacy & Terms',
   ]
 
   return (
     <div className="p-6 min-h-screen">
       <header className='flex flex-col max-w-xl mx-auto items-center mb-7'>
-          <Image src={icon} className='w-8 h-8' />
+          <Image alt='logo' src="/logo.png" className='w-8 h-8' width={32} height={32} />
           <h1 className='text-xl font-semibold'>Earth Pulse</h1>
           <p className='text-sm text-center'>Track climate change, global warming and greenhouse gas emissions. Explore the latest data and insights. Share and make an impact!</p>
       </header>

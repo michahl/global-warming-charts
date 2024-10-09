@@ -21,10 +21,10 @@ export default function GlobalWarming() {
                 <section className="p-2">
                     <h3 className="font-semibold text-md">What is Global Warming?</h3>
                     <p className="text-[0.9rem]">
-                        Global warming refers to the long-term rise in the Earth's average surface temperature due to human activities, primarily the release of greenhouse gases (GHGs) such as carbon dioxide (CO₂), methane (CH₄), and nitrous oxide (N₂O). These gases trap heat in the atmosphere, creating a "greenhouse effect" that leads to warming. The main source of these emissions comes from burning fossil fuels (coal, oil, and natural gas) for energy, deforestation, and industrial processes.
+                        Global warming refers to the long-term rise in the Earth&#39;s average surface temperature due to human activities, primarily the release of greenhouse gases (GHGs) such as carbon dioxide (CO₂), methane (CH₄), and nitrous oxide (N₂O). These gases trap heat in the atmosphere, creating a &quot;greenhouse effect&quot; that leads to warming. The main source of these emissions comes from burning fossil fuels (coal, oil, and natural gas) for energy, deforestation, and industrial processes.
                     </p>
                     <p className="text-[0.9rem] mt-2">
-                        The Earth's climate has changed naturally over millions of years, but the current rate of warming is unprecedented and is directly linked to human activities since the industrial revolution.
+                        The Earth&#39;s climate has changed naturally over millions of years, but the current rate of warming is unprecedented and is directly linked to human activities since the industrial revolution.
                     </p>
                 </section>
 
@@ -49,7 +49,7 @@ export default function GlobalWarming() {
                         <div className="w-full p-2">
                             <p className="text-[0.9rem]">
                                 <strong>Average Temperatures:</strong> This chart displays the average global temperatures over 
-                                a specific period. It provides a clear picture of how the Earth's temperature has changed over 
+                                a specific period. It provides a clear picture of how the Earth&#39;s temperature has changed over 
                                 the years, highlighting periods of significant warming.
                             </p>
                         </div>
