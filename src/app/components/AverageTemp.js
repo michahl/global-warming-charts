@@ -55,7 +55,6 @@ export default function AverageTemp() {
             <div className="flex flex-col justify-center h-full">
                 <div className="flex flex-row items-center justify-between px-4 sm:px-5 mt-5">
                     <h2 className="text-white/85 font-semibold">Yearly Average Temperature</h2>
-                    <p className="text-[10px] sm:text-xs text-center text-blue-500 border border-blue-500/80 rounded-full py-1 px-2">Since 1880</p>
                 </div>
                 <TemperatureChart data={averageTemps} />
             </div>

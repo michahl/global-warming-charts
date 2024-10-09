@@ -46,7 +46,7 @@ const TempChangeChart = ({ data }) => {
                     <defs>
                         <linearGradient id="colorChange" x1="0" y1="0" x2="0" y2="1">
                             <stop offset="60%" stopColor="#ff0000" />
-                            <stop offset="90%" stopColor="#0000ff" />
+                            <stop offset="95%" stopColor="#0000ff" />
                         </linearGradient>
                     </defs>
                     <XAxis 

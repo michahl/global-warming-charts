@@ -53,7 +53,7 @@ const TemperatureChart = ({ data = [] }) => {
                     </div>  
                 ) : ''}
             </div>
-            <ResponsiveContainer width="100%" height={window.innerWidth < 600 ? 200 : 275}>
+            <ResponsiveContainer width="100%" height={window.innerWidth < 600 ? 200 : 225}>
                 <AreaChart data={data} margin={{ top: 75, right: 20, left: -25, bottom: 5 }} onMouseMove={handleMouseMove} onMouseLeave={() => setHoveredData(null)}>
                     <CartesianGrid vertical={false} horizontal={false} />
                     <XAxis 
