@@ -43,6 +43,12 @@ const TempChangeChart = ({ data }) => {
                         top: 75, right: 20, left: -15, bottom: 5
                     }}
                 >
+                    <defs>
+                        <linearGradient id="colorChange" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="60%" stopColor="#ff0000" />
+                            <stop offset="90%" stopColor="#0000ff" />
+                        </linearGradient>
+                    </defs>
                     <XAxis 
                         dataKey="year" 
                         axisLine={false} 
@@ -63,13 +69,8 @@ const TempChangeChart = ({ data }) => {
                     <Area
                         type="monotone"
                         dataKey="rateOfChange"
-                        stroke="#ff0000"
+                        stroke="url(#colorChange)" 
                         fillOpacity={0}
-                        dot={false}
-                        isAnimationActive={false}
-                        connectNulls
-                        yAxisId={0}
-                        baseValue={0}
                         activeDot={{ r: 3, fill: '#ebebeb' }}
                     />
                     {dataPoint2024 && (

@@ -42,11 +42,11 @@ const TempAnomalyChart = ({ data }) => {
                 <AreaChart data={data} margin={{ top: 75, right: 20, left: -25, bottom: 5 }} >
                     <defs>
                         <linearGradient id="colorAnomaly" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#ff4c0b"/> {/* Red color */}
-                            <stop offset="35%" stopColor="#ff9b0b" /> {/* Orange color */}
-                            <stop offset="65%" stopColor="#ffb20b" /> {/* Cyan color */}
-                            <stop offset="75%" stopColor="#00ffff" /> {/* Cyan color */}
-                            <stop offset="100%" stopColor="#00ffff"/> {/* Cyan color */}
+                            <stop offset="0%" stopColor="#ff4c0b"/>
+                            <stop offset="35%" stopColor="#ff9b0b" />
+                            <stop offset="65%" stopColor="#ffb20b" />
+                            <stop offset="75%" stopColor="#00ffff" />
+                            <stop offset="100%" stopColor="#00ffff"/>
                         </linearGradient>
                     </defs>
                     <XAxis 
