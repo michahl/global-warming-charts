@@ -1,9 +1,14 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine, ReferenceDot } from 'recharts';
 
 const TempChangeChart = ({ data }) => {
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     const dataPoint2024 = data.find(point => point.year === 2024);
 
@@ -19,6 +24,10 @@ const TempChangeChart = ({ data }) => {
     };
 
     const displayData = hoveredData || dataPoint2024
+
+    if (!isClient) {
+        return null;
+    }
 
     const axisTickStyle = {
         fontSize: 10,

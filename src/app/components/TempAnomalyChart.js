@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { AreaChart, Area, XAxis, YAxis, ResponsiveContainer, Tooltip, ReferenceLine, defs, linearGradient, stop, ReferenceDot } from 'recharts';
+import React, { useState } from 'react';
+import { AreaChart, Area, XAxis, YAxis, ResponsiveContainer, Tooltip, ReferenceLine, ReferenceDot } from 'recharts';
 
 const TempAnomalyChart = ({ data }) => {
     // Find the data point for the year 2024
@@ -26,6 +26,10 @@ const TempAnomalyChart = ({ data }) => {
     };
 
     const displayData = hoveredData || dataPoint2024
+
+    if (typeof window === 'undefined') {
+        return null; // Ensure the component is rendered only on the client side
+    }
 
     return (
         <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>

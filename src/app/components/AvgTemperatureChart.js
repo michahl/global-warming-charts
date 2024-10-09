@@ -42,6 +42,10 @@ const TemperatureChart = ({ data = [] }) => {
 
     const displayData = hoveredData || lastDataPoint;
 
+    if (typeof window === 'undefined') {
+        return null; // Ensure the component is rendered only on the client side
+    }
+
     return (
         <div style={{ position: 'relative' }}>
             <div style={{ position: 'absolute', top: 5, right: 20, color: 'white', zIndex: 10 }}>
