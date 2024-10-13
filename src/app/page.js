@@ -18,14 +18,14 @@ export default function Home() {
   ]
 
   return (
-    <div className="p-6 min-h-screen">
+    <div className="w-full flex flex-col items-center justify-center min-h-screen">
       <header className='flex flex-col max-w-xl mx-auto items-center mb-7'>
           <Image alt='logo' src="/logo.png" className='w-8 h-8' width={32} height={32} />
           <h1 className='text-xl font-semibold'>Earth Pulse</h1>
           <p className='text-sm text-center'>Track climate change, global warming and greenhouse gas emissions. Explore the latest data and insights. Share and make an impact!</p>
       </header>
 
-      <main className='max-w-2xl mx-auto space-y-8'>
+      <main className='w-full max-w-2xl mx-auto space-y-8'>
         <section>
           <h2 className="font-semibold text-blue-500 mb-2 px-2">Dashboards with most recent data</h2>
           <div className='grid grid-cols-1 gap-1'>
@@ -38,19 +38,6 @@ export default function Home() {
                 <IoIosArrowDroprightCircle className='w-5 h-5 text-blue-500' />
               </Link>
             ))}
-          </div>
-        </section>
-
-        <section>
-          <h2 className="font-semibold text-blue-500 mb-2 px-2">Dashboard for Paris Agreement</h2>
-          <div className='grid grid-cols-1 gap-1'>
-            <div className='flex items-center justify-between bg-base-200/75 hover:bg-base-200 rounded-xl py-3 px-4 cursor-pointer'>
-              <div className='leading-snug'>
-                <h3 className='text-[0.93rem] font-semibold'>Indicators of Global Climate Change</h3>
-                <p className='text-[0.8rem] text-orange-400/85'>IPCC AR6 consistent, annually updated, by IGCC initiative</p>
-              </div>
-              <IoIosArrowDroprightCircle className='w-5 h-5 text-blue-500' />
-            </div>
           </div>
         </section>
 
