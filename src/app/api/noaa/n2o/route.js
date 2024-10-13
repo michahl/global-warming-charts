@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-    const apiUrl = "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_mlo.csv";
+    const apiUrl = "https://gml.noaa.gov/webdata/ccgg/trends/n2o/n2o_mm_gl.csv";
 
     try {
         const response = await fetch(apiUrl, {
