@@ -41,5 +41,8 @@ const parseCSV = (csv) => {
         return obj;
     });
 
-    return jsonData;
+    // Filter data to only include entries after the year 1885
+    const filteredData = jsonData.filter(entry => entry['Year'] > 1884 && entry['Year'] <= 2024);
+
+    return filteredData;
 }
