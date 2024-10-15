@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Global Warming Data Tracker 🌍
 
-## Getting Started
+> This website provides up-to-date data from reliable sources such as NASA and NOAA, displayed in clear and interactive charts.
 
-First, run the development server:
+### Table of Contents
+- [Data Sources](#data-sources)
+- [How to Embed Charts](#how-to-embed-charts)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+### Data Sources
+All data presented on this website is sourced from trusted scientific organizations:
+- NASA's Goddard Institute for Space Studies (GISS) – Temperature Anomaly Data
+- NASA CERES – Climate and Radiation Data
+- National Oceanic and Atmospheric Administration (NOAA) – Greenhouse Gas Trends
+- Climate.gov – Sea Level Data
+
+### How to Embed Charts
+You can embed charts from this website on your own by using the provided `<iframe>` snippets available on the chart pages. This allows you to integrate dynamic climate data visualizations into your website.
+
+**Yearly Average Temperature Anomaly**
+```
+https: 
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Yearly Avearage Temperature**
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+**Rate of Temperature Change**
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+**Monthly Impact of Greenhouse Gases on Energy Balance**
+```
 
-## Learn More
+```
+**Yearly Sea Level Change**
+```
 
-To learn more about Next.js, take a look at the following resources:
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Technologies used
+- Next.js for server-side rendering, API routes, and building user interfaces
+- Tailwind CSS for utility-first CSS framework
+- DaisyUI for pre-built Tailwind CSS components
+- Recharts for data visualization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Getting Started
 
-## Deploy on Vercel
+To get started with this project, follow these steps:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/michahl/global-warming-charts.git
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    cd global-warming-charts
+    ```
+
+2. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3. **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+
+4. **Open your browser:**
+    Open [http://localhost:3000](http://localhost:3000) to view the website in your browser.
+
+5. **Build for production:**
+    ```bash
+    npm run build
+    npm start
+    ```
