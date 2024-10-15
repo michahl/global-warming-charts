@@ -4,8 +4,7 @@ import Footer from "../../components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { IoReturnDownBack } from "react-icons/io5";
-import { IoIosLink } from "react-icons/io"
-import AverageTempAnomaly from "@/app/components/AverageTempAnomaly";
+import { IoIosLink } from "react-icons/io";
 
 export default function Info(){
     return (
