@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import TempChangeChart from "./TempChangeChart";
+import TempChangeChart from "./charts/TempChangeChart";
 
 export default function TempChange() {
     const [rateOfChangeResults, setRateOfChangeResults] = useState([]);

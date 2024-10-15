@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import TempAnomalyChart from "./TempAnomalyChart";
+import TempAnomalyChart from "./charts/TempAnomalyChart";
 
 export default function AverageTempAnomaly() {
     const [averageAn, setAverageAn] = useState([]);

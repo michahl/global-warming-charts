@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import TemperatureChart from "./AvgTemperatureChart";
+import TemperatureChart from "./charts/AvgTemperatureChart";
 
 export default function AverageTemp() {
     const [averageTemps, setAverageTemps] = useState([]);
