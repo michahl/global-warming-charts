@@ -21,24 +21,24 @@ You can embed charts from this website on your own by using the provided `<ifram
 
 **Yearly Average Temperature Anomaly**
 ```
-https: 
+https://global-warming-data.vercel.app/embed/avg-temp-anomaly
 ```
 
 **Yearly Avearage Temperature**
 ```
-
+https://global-warming-data.vercel.app/embed/average-temp
 ```
 **Rate of Temperature Change**
 ```
-
+https://global-warming-data.vercel.app/embed/temp-change
 ```
 **Monthly Impact of Greenhouse Gases on Energy Balance**
 ```
-
+https://global-warming-data.vercel.app/embed/greenhouse-impact
 ```
 **Yearly Sea Level Change**
 ```
-
+https://global-warming-data.vercel.app/embed/sea-level
 ```
 
 ### Technologies used
