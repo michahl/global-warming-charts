@@ -10,6 +10,7 @@ const formatXAxis = (tickItem) => {
 };
 
 const GreenhouseChart = ({ data }) => {
+    const [xTicks, setXTicks] = useState([2005, 2008, 2011, 2014, 2017, 2020, 2024]);
     const lastYear = 2024;
     const lastMonth = 6;
     const lastDataPoint = data.find(d => d.year === lastYear && d.month === lastMonth);
@@ -72,14 +73,12 @@ const GreenhouseChart = ({ data }) => {
                     onMouseMove={handleMouseMove} onMouseLeave={() => setHoveredData(null)}
                 >
                     <XAxis 
-                        dataKey="month" 
-                        tick={{ fontSize: 10, fill: 'white' }} 
-                        tickFormatter={(tick, index) => {
-                            const tickItem = data[index];
-                            return formatXAxis(tickItem); // Always format the label
-                        }} 
+                        dataKey="year" 
+                        ticks={xTicks} 
+                        tick={{ fill: 'white', fontSize: 10 }} // Adjust font size here
                         axisLine={false}
                         tickLine={false}
+                        tickCount={xTicks.length}
                     />
                     <YAxis 
                         tick={{ fontSize: 10, fill: 'white' }} 
