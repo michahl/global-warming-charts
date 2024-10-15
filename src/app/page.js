@@ -10,9 +10,9 @@ export default function Home() {
       <div className='flex-grow flex flex-col items-center justify-center max-w-2xl mx-auto'>
         <Image src='/logo.png' width={35} height={35} />
         <h1 className='text-xl font-bold tracking-tight'>Global Warming Data Tracker</h1>
-        <p className='text-sm text-center mb-8'>Explore comprehensive charts and data visualizations on global warming trends.</p>
+        <p className='text-sm text-center mb-8'>Explore the latest data and insights on global warming trends.</p>
 
-        <div className='flex flex-row gap-1 w-[75%] mb-10'>
+        <div className='flex flex-row gap-1 w-[75%]'>
           <Link href='/data' className='w-full text-center bg-base-200/75 hover:bg-base-200 rounded-xl py-2.5 px-8 cursor-pointer'>
             <h3 className='text-[0.93rem] font-semibold'>View Data</h3>
           </Link>
@@ -22,7 +22,7 @@ export default function Home() {
         </div>
       </div>
 
-      <footer className='w-full max-w-2xl mx-auto pt-4 border-t border-gray-700 mb-5'>
+      <footer className='w-full max-w-2xl mx-auto pt-4 border-t border-gray-700/80 mb-5'>
         <div className='flex flex-col justify-center items-center gap-1'>
           <Link
             href="https://github.com/"
