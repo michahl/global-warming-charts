@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import GreenhouseChart from "./charts/GreenhouseChart";
 
 export default function GreenhouseGas() {
     const [data, setData] = useState([]);
@@ -33,7 +34,8 @@ export default function GreenhouseGas() {
                             average_n2o: n2oItem ? n2oItem.average : null,
                             average_ch4: ch4Item ? ch4Item.average : null
                         };
-                    });
+                    })
+                    .filter(item => item.average_co2 !== null && item.average_n2o !== null && item.average_ch4 !== null);
 
                 setData(combinedData);
             } catch (error) {
@@ -46,7 +48,12 @@ export default function GreenhouseGas() {
 
     return (
         <div className="max-w-3xl bg-zinc-950/80 rounded-2xl border-2 border-gray-700/40 shadow-xl">
-            
+            <div className="flex flex-col justify-center h-full">
+                <div className="flex flex-row items-center justify-between px-4 sm:px-5 mt-5">
+                    <h2 className="text-white/85 font-semibold">Monthly Greenhouse Emissions</h2>
+                </div>
+                <GreenhouseChart data={data} />
+            </div>
         </div>
     );
 }

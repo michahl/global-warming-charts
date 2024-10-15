@@ -6,11 +6,11 @@ import Link from 'next/link';
 
 export default function Home() {
   const pages = [
-    { title: 'Global Warming', description: "Crucial indicators of Earth's rising temperatures", link: "/global-warming" },
-    { title: 'CO₂ Carbon Dioxide', description: 'Human-induced emissions of CO₂', link: "/co2" },
-    { title: 'CH₄ Methane', description: 'Human-induced emissions of CH₄', link: "/methane" },
-    { title: 'N₂O Nitrous Oxide', description: 'Human-induced emissions of N₂O', link: "/n2o" },
-  ]
+    { title: 'Global Warming', description: "Visuals highlighting Earth's rising temperature trends", link: "/global-warming" },
+    { title: 'CO₂ Carbon Dioxide', description: 'Data on human-caused CO₂ emissions', link: "/co2" },
+    { title: 'CH₄ Methane', description: 'Data on human-caused CH₄ emissions', link: "/methane" },
+    { title: 'N₂O Nitrous Oxide', description: 'Data on human-caused N₂O emissions', link: "/n2o" },
+  ];
 
   const more = [
     'About',
@@ -21,7 +21,7 @@ export default function Home() {
     <div className="w-full flex flex-col items-center justify-center min-h-screen">
       <header className='flex flex-col max-w-xl mx-auto items-center mb-7'>
           <Image alt='logo' src="/logo.png" className='w-8 h-8' width={32} height={32} />
-          <h1 className='text-xl font-semibold'>Earth Pulse</h1>
+          <h1 className='text-xl font-semibold'>Global Warming Tracker</h1>
           <p className='text-sm text-center'>Track climate change, global warming and greenhouse gas emissions. Explore the latest data and insights. Share and make an impact!</p>
       </header>
 

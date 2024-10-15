@@ -7,6 +7,7 @@ import TempChange from "../components/TempChange"
 
 import { LuHelpingHand } from "react-icons/lu";
 import Footer from "../components/Footer";
+import GreenhouseGas from "../components/GreenhouseGas";
 
 export default function GlobalWarming() {
     return (
@@ -28,6 +29,9 @@ export default function GlobalWarming() {
                     </div>
                     <AverageTemp />
                     <TempChange />
+                    <div className="sm:col-span-2 w-full">
+                        <GreenhouseGas />
+                    </div>
                 </section>
 
                 <Footer />

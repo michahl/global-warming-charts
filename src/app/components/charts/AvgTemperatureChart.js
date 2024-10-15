@@ -66,6 +66,7 @@ const TemperatureChart = ({ data = [] }) => {
                         tick={{ fill: 'white', fontSize: 10 }} // Adjust font size here
                         axisLine={false}
                         tickLine={false}
+                        tickCount={xTicks.length}
                     />
                     <YAxis 
                         domain={[11, 'dataMax']} 
