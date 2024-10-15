@@ -5,80 +5,39 @@ import { IoIosArrowDroprightCircle, IoLogoGithub } from "react-icons/io"
 import Link from 'next/link';
 
 export default function Home() {
-  const pages = [
-    { title: 'Global Warming', description: "Visuals highlighting Earth's rising temperature trends", link: "/global-warming" },
-    { title: 'CO₂ Carbon Dioxide', description: 'Data on human-caused CO₂ emissions', link: "/co2" },
-    { title: 'CH₄ Methane', description: 'Data on human-caused CH₄ emissions', link: "/methane" },
-    { title: 'N₂O Nitrous Oxide', description: 'Data on human-caused N₂O emissions', link: "/n2o" },
-  ];
-
-  const more = [
-    'About',
-    'Privacy & Terms',
-  ]
-
   return (
-    <div className="w-full flex flex-col items-center justify-center min-h-screen">
-      <header className='flex flex-col max-w-xl mx-auto items-center mb-7'>
-          <Image alt='logo' src="/logo.png" className='w-8 h-8' width={32} height={32} />
-          <h1 className='text-xl font-semibold'>Global Warming Tracker</h1>
-          <p className='text-sm text-center'>Track climate change, global warming and greenhouse gas emissions. Explore the latest data and insights. Share and make an impact!</p>
-      </header>
+    <div className="flex flex-col items-center justify-between min-h-screen">
+      <div className='flex-grow flex flex-col items-center justify-center max-w-2xl mx-auto'>
+        <Image src='/logo.png' width={35} height={35} />
+        <h1 className='text-xl font-bold tracking-tight'>Global Warming Data Tracker</h1>
+        <p className='text-sm text-center mb-8'>Explore comprehensive charts and data visualizations on global warming trends.</p>
 
-      <main className='w-full max-w-2xl mx-auto space-y-8'>
-        <section>
-          <h2 className="font-semibold text-blue-500 mb-2 px-2">Dashboards with most recent data</h2>
-          <div className='grid grid-cols-1 gap-1'>
-            {pages.map((page, index) => (
-              <Link href={page.link} key={index} className='flex items-center justify-between bg-base-200/75 hover:bg-base-200 rounded-xl py-3 px-4 cursor-pointer'>
-                <div className='leading-snug'>
-                  <h3 className='text-[0.93rem] font-semibold'>{page.title}</h3>
-                  <p className='text-[0.8rem] text-orange-400/85'>{page.description}</p>
-                </div>
-                <IoIosArrowDroprightCircle className='w-5 h-5 text-blue-500' />
-              </Link>
-            ))}
-          </div>
-        </section>
+        <div className='flex flex-row gap-1 w-[75%] mb-10'>
+          <Link href='/data' className='w-full text-center bg-base-200/75 hover:bg-base-200 rounded-xl py-2.5 px-8 cursor-pointer'>
+            <h3 className='text-[0.93rem] font-semibold'>View Data</h3>
+          </Link>
+          <Link href='/about' className='w-full text-center bg-base-200/75 hover:bg-base-200 rounded-xl py-2.5 px-8 cursor-pointer'>
+            <h3 className='text-[0.93rem] font-semibold'>About</h3>
+          </Link>
+        </div>
+      </div>
 
-        <section>
-          <h2 className='font-semibold text-blue-500 mb-2 px-2'>More</h2>
-          <div className='grid grid-cols-2 gap-1'>
-            {
-              more.map((item, index)=> (
-                <div key={index} className='bg-base-200/75 hover:bg-base-200 rounded-xl cursor-pointer flex items-center justify-center p-4'>
-                  <h3 className='text-[0.943rem] font-semibold'>{item}</h3>
-                </div>
-              ))
-            }
-          </div>
-        </section>
-
-        <section className='text-center'>
-          <p className='text-gray-400 mb-1 text-sm'>Tell your friends and make an impact!</p>
-          <button
-            className='bg-blue-600 text-sm text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors'
+      <footer className='w-full max-w-2xl mx-auto pt-4 border-t border-gray-700 mb-5'>
+        <div className='flex flex-col justify-center items-center gap-1'>
+          <Link
+            href="https://github.com/"
+            target='_blank'
+            aria-label='GitHub'
+            className='text-gray-400 hover:text-gray-300 transition-colors'
           >
-            Share link 🌍
-          </button>
-        </section>
-      </main>
-
-      <footer className='flex flex-col justify-center items-center max-w-3xl mx-auto mt-5 pt-5 border-t border-gray-800/50'>
-          <div className='flex justify-center space-x-4 mb-2'>
-            <a 
-              href='https://github.com/michahl' 
-              target='_blank'
-              className='text-gray-400 hover:text-gray-300 transition-colors'
-            >
-              <IoLogoGithub className='w-6 h-6' />
-            </a>
-          </div>
-          <p className='text-gray-400 text-sm'>
-            &copy; {new Date().getFullYear()} Earth Pulse. All rights reserved.
+            <IoLogoGithub size={25} />
+          </Link>
+          <p className='text-gray-400 text-center text-sm'>
+            © {new Date().getFullYear()} Global Warming Data Tracker. All rights reserved.
           </p>
-          <p className='text-sm'>Logo by <a href='https://www.flaticon.com' target='_blank' className='link link-hover'>Freepik - Flaticon</a></p>
-      </footer>
+        </div>
+        <p className='text-sm text-center'>Logo by <a href='https://www.flaticon.com' target='_blank' className='link link-hover'>Freepik - Flaticon</a></p>
+      </footer> 
     </div>
   );
 }
