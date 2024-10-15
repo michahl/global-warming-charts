@@ -3,6 +3,26 @@
 import { useState, useEffect } from "react";
 import GreenhouseChart from "./charts/GreenhouseChart";
 
+// Pre-industrial baseline concentrations
+const preIndustrialCO2 = 280; // ppm
+const preIndustrialCH4 = 722; // ppb
+const preIndustrialN2O = 270; // ppb
+
+// Radiative forcing calculation for CO2 (in ppm)
+function calculateCO2Forcing(currentCO2) {
+    return 5.35 * Math.log(currentCO2 / preIndustrialCO2);
+}
+
+// Radiative forcing calculation for CH4 (in ppb)
+function calculateCH4Forcing(currentCH4) {
+    return 0.036 * (Math.sqrt(currentCH4) - Math.sqrt(preIndustrialCH4));
+}
+
+// Radiative forcing calculation for N2O (in ppb)
+function calculateN2OForcing(currentN2O) {
+    return 0.12 * (Math.sqrt(currentN2O) - Math.sqrt(preIndustrialN2O));
+}
+
 export default function GreenhouseGas() {
     const [data, setData] = useState([]);
 
@@ -27,15 +47,20 @@ export default function GreenhouseGas() {
                         const n2oItem = n2oData.find(item => item.year === co2Item.year && item.month === co2Item.month);
                         const ch4Item = ch4Data.find(item => item.year === co2Item.year && item.month === co2Item.month);
 
+                        // Calculate radiative forcing
+                        const co2Forcing = calculateCO2Forcing(co2Item.average);
+                        const n2oForcing = n2oItem ? calculateN2OForcing(n2oItem.average) : null;
+                        const ch4Forcing = ch4Item ? calculateCH4Forcing(ch4Item.average) : null;
+
                         return {
                             year: co2Item.year,
                             month: co2Item.month,
-                            average_co2: co2Item.average,
-                            average_n2o: n2oItem ? n2oItem.average : null,
-                            average_ch4: ch4Item ? ch4Item.average : null
+                            co2Forcing: co2Forcing !== null ? Number(co2Forcing.toFixed(2)) : null,
+                            n2oForcing: n2oForcing !== null ? Number(n2oForcing.toFixed(2)) : null,
+                            ch4Forcing: ch4Forcing !== null ? Number(ch4Forcing.toFixed(2)) : null,
                         };
                     })
-                    .filter(item => item.average_co2 !== null && item.average_n2o !== null && item.average_ch4 !== null);
+                    .filter(item => item.co2Forcing !== null && item.n2oForcing !== null && item.ch4Forcing !== null);
 
                 setData(combinedData);
             } catch (error) {
@@ -50,7 +75,7 @@ export default function GreenhouseGas() {
         <div className="max-w-3xl bg-zinc-950/80 rounded-2xl border-2 border-gray-700/40 shadow-xl">
             <div className="flex flex-col justify-center h-full">
                 <div className="flex flex-row items-center justify-between px-4 sm:px-5 mt-5">
-                    <h2 className="text-white/85 font-semibold">Monthly Greenhouse Emissions</h2>
+                    <h2 className="text-white/85 font-semibold">Monthly Impact of Greenhouse Gases on Energy Balance</h2>
                 </div>
                 <GreenhouseChart data={data} />
             </div>
