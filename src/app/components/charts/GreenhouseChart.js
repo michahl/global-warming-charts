@@ -13,6 +13,7 @@ const GreenhouseChart = ({ data }) => {
     const lastYear = 2024;
     const lastMonth = 6;
     const lastDataPoint = data.find(d => d.year === lastYear && d.month === lastMonth);
+    const lastDataPointIndex = data.findIndex(d => d.year === lastYear && d.month === lastMonth);
 
     const [hoveredData, setHoveredData] = useState(null);
 
@@ -94,7 +95,9 @@ const GreenhouseChart = ({ data }) => {
                     <Area type="monotone" dataKey="n2oForcing" stroke="#82ca9d" fill="#82ca9d" activeDot={{ r: 2, fill: '#ebebeb' }} />
                     {lastDataPoint && (
                         <>
-                            <ReferenceDot x={lastDataPoint.month} y={lastDataPoint.co2Forcing} r={3} fill="#ebebeb" />
+                            <ReferenceDot x={lastDataPointIndex} y={lastDataPoint.co2Forcing} r={3} fill="#ebebeb" />
+                            <ReferenceDot x={lastDataPointIndex} y={lastDataPoint.ch4Forcing} r={3} fill="#ebebeb" />
+                            <ReferenceDot x={lastDataPointIndex} y={lastDataPoint.n2oForcing} r={3} fill="#ebebeb" />
                         </>
                     )}
                 </AreaChart>
