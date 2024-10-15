@@ -24,8 +24,8 @@ export default function Info(){
 
                 <section>
                     <p>
-                        <span className="font-semibold">Global warming</span> refers to the long-term rise in Earth's average surface temperature due to human activities, especially the emission of greenhouse gases 
-                        like carbon dioxide (CO2), methane (CH4), and nitrous oxide (N2O). These gases trap heat in the atmosphere, causing the planet's temperature to increase.
+                        <span className="font-semibold">Global warming</span> refers to the long-term rise in Earth&rsquo;s average surface temperature due to human activities, especially the emission of greenhouse gases 
+                        like carbon dioxide (CO2), methane (CH4), and nitrous oxide (N2O). These gases trap heat in the atmosphere, causing the planet&rsquo;s temperature to increase.
                     </p>
                     <a 
                         href="https://en.wikipedia.org/wiki/Global_warming"
