@@ -25,7 +25,7 @@ export default function GlobalWarming() {
     return (
         <div className="p-5 min-h-screen">
             <Link href="/" className="flex items-center justify-center">
-                <Image src="/logo.png" width={35} height={35} />
+                <Image alt='logo' src="/logo.png" width={35} height={35} />
             </Link>
             <main className="mx-auto max-w-6xl space-y-5">
                 <section className="text-white/80 p-2 flex items-center justify-between">

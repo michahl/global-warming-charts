@@ -5,6 +5,7 @@ import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceL
 
 const TempChangeChart = ({ data }) => {
     const [isClient, setIsClient] = useState(false);
+    const [hoveredData, setHoveredData] = useState(null);
 
     useEffect(() => {
         setIsClient(true);
@@ -12,18 +13,15 @@ const TempChangeChart = ({ data }) => {
 
     const dataPoint2024 = data.find(point => point.year === 2024);
 
-    const [hoveredData, setHoveredData] = useState(dataPoint2024);
-
-    const CustomTooltip = ({ active, payload }) => {
-        if (active && payload && payload.length) {
-            setHoveredData(payload[0].payload);
-        }
-        else {
+    const handleMouseMove = (e) => {
+        if (e && e.activePayload && e.activePayload.length) {
+            setHoveredData(e.activePayload[0].payload);
+        } else {
             setHoveredData(null);
         }
     };
 
-    const displayData = hoveredData || dataPoint2024
+    const displayData = hoveredData || dataPoint2024;
 
     if (!isClient) {
         return null;
@@ -51,6 +49,7 @@ const TempChangeChart = ({ data }) => {
                     margin={{
                         top: 75, right: 20, left: -15, bottom: 5
                     }}
+                    onMouseMove={handleMouseMove}
                 >
                     <defs>
                         <linearGradient id="colorChange" x1="0" y1="0" x2="0" y2="1">
@@ -72,7 +71,7 @@ const TempChangeChart = ({ data }) => {
                         ticks={[0, 0.01, 0.02]}
                     />
                     <Tooltip
-                        content={<CustomTooltip />}
+                        content={<></>}
                     />
                     <ReferenceLine y={0} fill='#8c8c8c' opacity={0.5} />
                     <Area

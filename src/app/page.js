@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-between min-h-screen">
       <div className='flex-grow flex flex-col items-center justify-center max-w-2xl mx-auto'>
-        <Image src='/logo.png' width={35} height={35} />
+        <Image alt='logo' src='/logo.png' width={35} height={35} />
         <h1 className='text-xl font-bold tracking-tight'>Global Warming Data Tracker</h1>
         <p className='text-sm text-center mb-8'>Explore the latest data and insights on global warming trends.</p>
 

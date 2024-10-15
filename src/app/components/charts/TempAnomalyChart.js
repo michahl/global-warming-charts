@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AreaChart, Area, XAxis, YAxis, ResponsiveContainer, Tooltip, ReferenceLine, ReferenceDot } from 'recharts';
 
 const TempAnomalyChart = ({ data }) => {
@@ -16,15 +16,18 @@ const TempAnomalyChart = ({ data }) => {
     };
 
     const CustomTooltip = ({ active, payload }) => {
-        if (active && payload && payload.length) {
-            setHoveredData(payload[0].payload);
-        }
-        else {
-            setHoveredData(null);
-        }
+        useEffect(() => {
+            if (active && payload && payload.length) {
+                setHoveredData(payload[0].payload);
+            } else {
+                setHoveredData(null);
+            }
+        }, [active, payload]);
+
+        return null; // Return null as the tooltip content is handled by the state
     };
 
-    const displayData = hoveredData || dataPoint2024
+    const displayData = hoveredData || dataPoint2024;
 
     if (typeof window === 'undefined') {
         return null; // Ensure the component is rendered only on the client side

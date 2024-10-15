@@ -6,13 +6,13 @@ const TermsAndPrivacy = () => {
     return (
         <div className="p-5 flex flex-col items-center justify-start min-h-screen">
             <Link href="/" className="flex items-center justify-center">
-                <Image src="/logo.png" width={35} height={35} />
+                <Image alt='logo' src="/logo.png" width={35} height={35} />
             </Link>
             <main className="flex-grow mx-auto max-w-xl space-y-5">
                 <h1 className='font-semibold text-xl'>Privacy Policy</h1>
 
                 <p className='text-sm'>
-                    We don't store any personal information about you. We don't use cookies or any other tracking technologies.
+                    We don&#39;t store any personal information about you. We don&#39;t use cookies or any other tracking technologies.
                 </p>
                 <p className='text-sm'>
                     You can access our website without creating an account or providing any personal information.

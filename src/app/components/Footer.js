@@ -1,7 +1,25 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
 
 export default function Footer() {
+    const [isSharing, setIsSharing] = useState(false);
+
+    const handleShare = async () => {
+        if (navigator.share) {
+            try {
+                setIsSharing(true); // Set sharing status to true
+                await navigator.share({
+                    title: 'Global Warming Data Tracker',
+                    text: 'Check out this amazing resource on global warming data!',
+                    url: window.location.href,
+                });
+            } catch (error) {
+            } finally {
+                setIsSharing(false); // Reset sharing status
+            }
+        } 
+    };
     return (
         <footer className="flex flex-col items-center pt-5 space-y-5">
             <div className="text-gray-400/80 text-sm flex flex-row items-center gap-1">
@@ -11,7 +29,9 @@ export default function Footer() {
                 </p>
             </div>
             <button
-                className="bg-blue-600 text-sm text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors"
+                onClick={handleShare}
+                disabled={isSharing}
+                className="bg-blue-600 text-sm text-white px-6 py-2 rounded-full hover:bg-blue-700 disabled:bg-blue-800 transition-colors"
             >
                 Share link 🌍
             </button>
@@ -23,7 +43,7 @@ export default function Footer() {
                     <Link href="/terms" className="text-blue-500 hover:underline">Privacy & Terms</Link>
                 </div>
                 <div className="flex flex-col items-center justify-center my-8">
-                    <Image src="/logo.png" width={30} height={30} alt="Earth Pulse Logo" />
+                    <Image src="/logo.png" width={30} height={30} alt="Logo" />
                     <p className="text-gray-400/65 text-sm mt-1">
                         &copy; {new Date().getFullYear()} Global Warming Data Tracker. All rights reserved.
                     </p>
