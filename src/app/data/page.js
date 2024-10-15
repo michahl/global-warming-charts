@@ -44,8 +44,10 @@ export default function GlobalWarming() {
                     </div>
                     <AverageTemp />
                     <TempChange />
-                    <GreenhouseGas />
-                    <SeaLevel />
+                    <div className="w-full sm:col-span-2 flex flex-col sm:flex-row gap-1.5">
+                        <div className="basis-3/4"><GreenhouseGas /></div>
+                        <div className="basis-1/3"><SeaLevel /></div>
+                    </div>
 
                 </section>
 
