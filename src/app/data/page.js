@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 import GreenhouseGas from "../components/GreenhouseGas";
 import { useEffect, useState } from "react";
 import SeaLevel from "../components/SeaLevel";
+import Image from "next/image";
 
 export default function GlobalWarming() {
     const [isClient, setIsClient] = useState(false);
@@ -23,13 +24,16 @@ export default function GlobalWarming() {
 
     return (
         <div className="p-5 min-h-screen">
+            <Link href="/" className="flex items-center justify-center">
+                <Image src="/logo.png" width={35} height={35} />
+            </Link>
             <main className="mx-auto max-w-6xl space-y-5">
                 <section className="text-white/80 p-2 flex items-center justify-between">
                     <div className="leading-tight">
                         <h2 className="font-semibold text-lg">Global Warming</h2>
                         <p className="text-[0.9rem]">Crucial indicators of Earth&#39;s rising temperatures</p>
                     </div>
-                    <Link href="/global-warming/more" className="rounded-full p-2 bg-gray-800 hover:bg-gray-800/75">
+                    <Link href="/data/info" className="tooltip tooltip-left rounded-full p-2 bg-gray-800 hover:bg-gray-800/75" data-tip="Information">
                         <LuHelpingHand className="text-blue-500 cursor-pointer w-6 h-6" />
                     </Link>
                 </section>
