@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, ResponsiveContainer, Tooltip, ReferenceLine, ReferenceDot } from 'recharts';
 
 const TempAnomalyChart = ({ data }) => {
-    // Find the data point for the year 2024
     const dataPoint2024 = data.find(point => point.year === 2024);
 
     const [hoveredData, setHoveredData] = useState(dataPoint2024);

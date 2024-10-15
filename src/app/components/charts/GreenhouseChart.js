@@ -3,12 +3,6 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-// Format the X-axis labels to include both month and year
-const formatXAxis = (tickItem) => {
-    const { month, year } = tickItem; // Destructure month and year from the tick item
-    return `${monthNames[month - 1]} ${year}`; // Format as "Month Year"
-};
-
 const GreenhouseChart = ({ data }) => {
     const [xTicks, setXTicks] = useState([2005, 2008, 2011, 2014, 2017, 2020, 2024]);
     const lastYear = 2024;

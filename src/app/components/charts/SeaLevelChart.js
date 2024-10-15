@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceDot } from "recharts";
 
-export default function SeaLevelChart({ data}) {
+export default function SeaLevelChart({ data }) {
     const lastYear = new Date().getFullYear();
     const lastDataPoint = data.find(d => Number(d.year) === lastYear);
     const [hoveredData, setHoveredData] = useState(null);
@@ -26,8 +26,8 @@ export default function SeaLevelChart({ data}) {
                 {displayData ? (
                     <div className='flex flex-col items-end leading-tight text-[0.8rem]'>
                         <p className='font-medium'>{displayData.year}</p>
-                        <p className='text-gray-500/90'>in °C </p>
-                        <p className='font-semibold'>{displayData.averageTemp}</p>
+                        <p className='text-gray-500/90'>in cm</p>
+                        <p className='font-semibold'>{displayData.avgSeaLevelChange}</p>
                     </div>  
                 ) : ''}
             </div>
@@ -35,22 +35,28 @@ export default function SeaLevelChart({ data}) {
                 <LineChart data={data} margin={{ top: 75, right: 20, left: -25, bottom: 5 }} onMouseMove={handleMouseMove} onMouseLeave={() => setHoveredData(null)} >
                     <CartesianGrid vertical={false} horizontal={false} />
                     <XAxis 
-                            dataKey="year" 
-                            tickFormatter={(tick) => `${tick}`} 
+                            dataKey="year"
                             tick={{ fill: 'white', fontSize: 10 }}
+                            tickFormatter={(tick) => `${tick}`} 
                             axisLine={false}
                             tickLine={false}
+                            ticks={["1885", "1900", "1920", "1940", "1960", "1980", "2000", "2024"]}
                     />
                     <YAxis
                             tick={{ fill: 'white', fontSize: 10 }}
                             axisLine={false}
                             tickLine={false}
+                            ticks={[-20, -10, 0, 10]}
                     />
                     <Tooltip
                         content={<></>}
                     />
-                    <Line type="monotone" dataKey="avgCW_2011" stroke="#8884d8" dot={false} />
-                    <Line type="monotone" dataKey="avgUHSLC_FD" stroke="#82ca9d" dot={false} />
+                    <Line type="monotone" dataKey="avgSeaLevelChange" stroke="#0076ff" dot={false} activeDot={{ r: 3, fill: '#ebebeb' }} />
+                    {lastDataPoint && (
+                        <>
+                            <ReferenceDot x={lastDataPoint.year} y={lastDataPoint.avgSeaLevelChange} r={3} fill="#ebebeb" />
+                        </>
+                    )}
                 </LineChart>
             </ResponsiveContainer>
         </div>

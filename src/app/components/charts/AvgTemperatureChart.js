@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine, ReferenceDot } from 'recharts';
 
 const TemperatureChart = ({ data = [] }) => {
-    const lastYear = 2024;
+    const lastYear = new Date().getFullYear();
     const lastDataPoint = data.find(d => d.year === lastYear);
 
     const [xTicks, setXTicks] = useState([1880, 1890, 1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000 , 2010, 2024]);

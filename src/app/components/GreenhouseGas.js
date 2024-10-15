@@ -72,7 +72,7 @@ export default function GreenhouseGas() {
     }, []);
 
     return (
-        <div className="max-w-3xl bg-zinc-950/80 rounded-2xl border-2 border-gray-700/40 shadow-xl">
+        <div className="bg-zinc-950/80 rounded-2xl border-2 border-gray-700/40 shadow-xl">
             <div className="flex flex-col justify-center h-full">
                 <div className="flex flex-row items-center justify-between px-4 sm:px-5 mt-5">
                     <h2 className="text-white/85 font-semibold">Monthly Impact of Greenhouse Gases on Energy Balance</h2>

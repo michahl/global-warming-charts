@@ -5,23 +5,43 @@ import SeaLevelChart from "./charts/SeaLevelChart";
 export default function SeaLevel() {
     const [data, setData] = useState([]);
 
-    const calculateYearlyAverages = (data) => {
-        const yearlyData = {};
-        data.forEach((entry) => {
-          const { Year, CW_2011, UHSLC_FD } = entry;
-          if (!yearlyData[Year]) {
-            yearlyData[Year] = { count: 0, totalCW_2011: 0, totalUHSLC_FD: 0 };
-          }
-          yearlyData[Year].totalCW_2011 += CW_2011 || 0;
-          yearlyData[Year].totalUHSLC_FD += UHSLC_FD || 0;
-          yearlyData[Year].count += 1;
+    const calculateYearlyAverages = (rawData) => {
+        const yearlyAverages = {};
+
+        rawData.forEach((item) => {
+            const year = item.Year;
+            const cwValue = item.CW_2011;
+            const uhsValue = item.UHSLC_FD;
+
+            // Initialize the year entry if it doesn't exist
+            if (!yearlyAverages[year]) {
+                yearlyAverages[year] = { totalSeaLevelChange: 0, count: 0 };
+            }
+
+            // If both values are present, average them. If one is null, use the other.
+            let combinedValue = 0;
+            if (cwValue !== null && uhsValue !== null) {
+                combinedValue = (cwValue + uhsValue) / 2;
+            } else if (cwValue !== null) {
+                combinedValue = cwValue;
+            } else if (uhsValue !== null) {
+                combinedValue = uhsValue;
+            }
+
+            // Add the combined value to the yearly total
+            yearlyAverages[year].totalSeaLevelChange += combinedValue;
+            yearlyAverages[year].count += 1; // Increment count for each entry
         });
-    
-        return Object.entries(yearlyData).map(([year, values]) => ({
-          year,
-          avgCW_2011: values.totalCW_2011 / values.count,
-          avgUHSLC_FD: values.totalUHSLC_FD / values.count,
-        }));
+
+        // Convert the aggregated data into the final averaged format
+        return Object.keys(yearlyAverages).map((year) => {
+            const avgSeaLevelChange = yearlyAverages[year].totalSeaLevelChange / yearlyAverages[year].count || 0;
+
+            return {
+                year: year,
+                avgSeaLevelChange: Number(avgSeaLevelChange/10).toFixed(2)
+            };
+        });
     };
 
     useEffect(() => {
@@ -30,45 +50,10 @@ export default function SeaLevel() {
                 const response = await fetch('/api/noaa/sea-level');
                 const rawData = await response.json();
 
-                // Process and group data by year
-                const yearlyAverages = {};
+                // Calculate yearly averages from the raw data
+                const finalData = calculateYearlyAverages(rawData);
 
-                rawData.forEach(item => {
-                    const year = item.Year;
-                    const cwValue = item.CW_2011;
-                    const uhsValue = item.UHSLC_FD;
-
-                    if (!yearlyAverages[year]) {
-                        yearlyAverages[year] = { totalCW: 0, totalUHS: 0, count: 0 };
-                    }
-
-                    // Only include non-null values for averaging
-                    if (cwValue !== null) {
-                        yearlyAverages[year].totalCW += cwValue;
-                    }
-                    if (uhsValue !== null) {
-                        yearlyAverages[year].totalUHS += uhsValue;
-                    }
-
-                    yearlyAverages[year].count += 1; // Increment count for each entry
-                });
-
-                // Create the final data with averages for each year
-                const finalData = Object.keys(yearlyAverages).map(year => {
-                    const avgCW = yearlyAverages[year].totalCW / yearlyAverages[year].count || 0;
-                    const avgUHS = yearlyAverages[year].totalUHS / yearlyAverages[year].count || 0;
-                    
-                    return {
-                        year: year,
-                        avgCW_2011: avgCW,
-                        avgUHSLC_FD: avgUHS
-                    };
-                });
-
-                const processedData = calculateYearlyAverages(finalData)
-
-                console.log(finalData)
-                setData(finalData); // Set the final processed data
+                setData(finalData); // Set the processed data
             } catch (error) {
                 console.error('Error fetching sea level data:', error);
             }
