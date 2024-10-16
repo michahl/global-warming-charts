@@ -17,7 +17,7 @@ export default function Info(){
                     <div className="leading-tight">
                         <h2 className="font-semibold text-lg">Global Warming Information</h2>
                     </div>
-                    <Link href="/data/info" className="tooltip tooltip-left rounded-full p-2 bg-gray-800 hover:bg-gray-800/75" data-tip="Go Back">
+                    <Link href="/data" className="tooltip tooltip-left rounded-full p-2 bg-gray-800 hover:bg-gray-800/75" data-tip="Go Back">
                         <IoReturnDownBack className="text-blue-500 cursor-pointer w-6 h-6" />
                     </Link>
                 </section>
